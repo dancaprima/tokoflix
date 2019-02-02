@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
-
+import React from 'react';
+import { Provider } from 'react-redux';
 import Home from './containers/Home/Home.js';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-class Routes extends Component {
-  render() {
-    return (
-      <Router>
-        <Route exact path="/" component={Home} />
-      </Router>
-    );
-  }
-}
+const Routes = ({ store }) => (
+  <Provider store={store}>
+    <Router>
+      <Route exact path="/" component={Home} />
+    </Router>
+  </Provider>
+);
 
 export default Routes;
