@@ -1,12 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import Home from './containers/Home/Home.js';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Detail from './containers/Detail/Detail.js';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const Routes = ({ store }) => (
   <Provider store={store}>
     <Router>
-      <Route exact path="/" component={Home} />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/detail" component={Detail} />
+      </Switch>
     </Router>
   </Provider>
 );
