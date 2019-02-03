@@ -1,32 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchMovies } from '../../services/movies/action';
+import Card from '../../components/Card/Card';
 
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+export class Home extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchMovies());
+    this.props.fetchMovies();
   }
 
   renderCard(data) {
-    return (
-      <div>
-        <img src={data.poster_path} alt="" />
-        <h1>{data.original_title}</h1>
-        <h3>{data.vote_average}</h3>
-        <p />
-      </div>
-    );
+    if (data.length === 0) {
+      return <h1>Data Kosong</h1>;
+    }
+
+    return data.map(e => <Card key={e.original_title} {...e} />);
   }
 
   render() {
     const { movies } = this.props;
     return (
-      <div>
-        {movies && movies.data &&  movies.data.map(d => this.renderCard(d))}
+      <div id="home">
+        {movies && !movies.isLoading ? (
+          this.renderCard(movies.data)
+        ) : (
+          <h1>Loading</h1>
+        )}
       </div>
     );
   }
@@ -37,7 +35,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return { dispatch };
+  return {
+    fetchMovies: () => dispatch(fetchMovies())
+  };
 };
 
 export default connect(
