@@ -1,25 +1,28 @@
-import { FETCH_MOVIES, FETCH_MOVIES_FAIL, FETCH_MOVIES_SUCCESS } from './type';
+import {
+  FETCH_DETAIL_MOVIE,
+  FETCH_DETAIL_MOVIE_FAIL,
+  FETCH_DETAIL_MOVIE_SUCCESS
+} from './type';
 
 const initialState = {
-  data: [],
+  data: {},
   isLoading: false
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_MOVIES:
+    case FETCH_DETAIL_MOVIE:
       return {
         ...state,
         isLoading: true
       };
-    case FETCH_MOVIES_SUCCESS:
+    case FETCH_DETAIL_MOVIE_SUCCESS:
       return {
         ...state,
         data: action.payload,
-        totalPages: action.totalPages,
         isLoading: false
       };
-    case FETCH_MOVIES_FAIL:
+    case FETCH_DETAIL_MOVIE_FAIL:
       return {
         ...state,
         isLoading: false

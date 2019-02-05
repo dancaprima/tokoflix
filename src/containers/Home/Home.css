@@ -1,0 +1,19 @@
+#home {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 80vh;
+}
+
+.w-25 {
+  width: 21%;
+  margin: 2%;
+}
+
+.pagination-wrapper {
+  display: flex;
+}
+
+.pagination-wrapper .pagination {
+  margin: auto;
+}

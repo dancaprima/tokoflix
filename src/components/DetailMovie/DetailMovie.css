@@ -1,0 +1,61 @@
+.image-wrapper {
+  width: 35%;
+  padding-bottom: 48%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+h3 {
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+h5 {
+  color: #42b549;
+  font-size: 22px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.body {
+  flex: 1;
+  margin-left: 15px;
+  position: relative;
+}
+
+.detail {
+  display: flex;
+  max-height: 370px;
+  overflow: hidden;
+}
+
+.cast {
+  display: flex;
+  justify-content: column;
+  margin-top: 30px;
+}
+
+.cast-title {
+  margin-right: 15px;
+}
+
+.cta-buy {
+  width: 100%;
+  border: 1px solid #42b549;
+  background: white;
+  color: #42b549;
+  position: absolute;
+  bottom: 0;
+  padding: 10px 15px;
+}
+
+.detail-title {
+  display: flex;
+  justify-content: space-between;
+}
